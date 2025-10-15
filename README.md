@@ -2,7 +2,7 @@
 
 1 (1) Excerpt start (emcom blocks)
 
-2 (2) Word start (lary_perc blocks)
+2 (2) Word start (laryperc blocks)
 
 5 (16) left button press
 
