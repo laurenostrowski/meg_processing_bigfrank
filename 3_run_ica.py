@@ -70,9 +70,6 @@ else:
         elapsed_ica = (time.time() - t)/60
         print("ICA fit elapsed time in minutes: %s" %elapsed_ica)
 
-        print("Saving ICA solution...")
-        ica.save(ica_solution_fname, overwrite=True)  # save solution
-
     ### SECTION 2: Apply the ICA solution ###                
     # EOG and ECG adjustments
     ica.exclude = []
@@ -83,10 +80,14 @@ else:
     ecg_indices, ecg_scores = ica.find_bads_ecg(raw, ch_name='ECG002')
 
     eog_ecg_indices = eog_indices + ecg_indices
-    ica.exclude = eog_ecg_indices # this modifies the ICA object in place and preps it for the ICA application in the next step
+    ica.exclude = eog_ecg_indices
 
-    # apply the ICA solution to the raw data and save it
+    print("Saving ICA solution...")
+    ica.save(ica_solution_fname, overwrite=True)  # save solution with automatic exclusions
+
+    # apply the ICA solution to the raw data and save
     print("Applying ICA...")
     ica.apply(raw)
+    print("Saving ICA-processed data...")
     raw.save(ica_processed_fname, overwrite=True)
     print(f"ICA applied and saved for {subject}\n\n")
