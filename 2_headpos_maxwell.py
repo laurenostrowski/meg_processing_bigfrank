@@ -16,7 +16,7 @@ from mne.io import read_raw_fif
 from mne.preprocessing import maxwell_filter
 
 # session info
-subject = 'nbl_010'
+subject = 'nbl_012'
 session = '01'
 files = ['bigfrank_1', 'bigfrank_2', 'bigfrank_3', 'emptyroom'] # 'pharyperc'
 
@@ -59,7 +59,7 @@ destination = raw_list[0].info['dev_head_t']
 raw_sss_list = []
 for idx, (file, raw) in enumerate(zip(files, raw_list)):
     print(f"\n{'='*60}")
-    print(f"Maxwell filtering file {idx+1}/3: {subject}_{file}_raw.fif")
+    print(f"Maxwell filtering file {idx+1}/{len(files)}: {subject}_{file}_raw.fif")
     print(f"{'='*60}")
     print(f"Applying Maxwell filter with tSSS...")
     t = time.time()
