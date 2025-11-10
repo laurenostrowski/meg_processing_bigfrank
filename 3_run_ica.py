@@ -1,6 +1,6 @@
 #### Run ICA
 
-# Use ICA to remove ocular and cardiac artifacts from the concatenated, Maxwell-filtered MEG data. After loading `*_ALL_sss_raw.fif`, bad channels from `{subject}_bads.txt` are excluded, data are bandpass filtered 1–200 Hz and 60 Hz-notch filtered, then ICA is fit on MEG channels. Artifact components are identified automatically by correlating component time courses with EOG (blinks/eye movements) and ECG (heartbeat), those components are excluded, and the cleaned data are reconstructed and saved as `{subject}_ALL_post_ica-raw.fif` (the ICA solution is also saved to `{subject}_ALL-ica.fif`). Below the automatic pipeline, you can optionally review component topographies/time courses and adjust exclusions manually before applying.
+# Use ICA to remove ocular and cardiac artifacts from the concatenated, Maxwell-filtered MEG data. After loading `*_ALL_sss_raw.fif`, bad channels from `{subject}_bads.txt` are excluded, data are bandpass filtered 1–200 Hz and 60 Hz-notch filtered, then ICA is fit on MEG channels. Artifact components are identified by correlating component time courses with EOG (blinks/eye movements) and ECG (heartbeat). Following manual review, those components are excluded, and the cleaned data are reconstructed and saved as `{subject}_ALL_post_ica-raw.fif` (the ICA solution is also saved to `{subject}_ALL-ica.fif`).
 
 # *The final ICA-cleaned data saved at `{subject}_ALL_post_ica-raw.fif` should be used for all analyses going forward.*
 
